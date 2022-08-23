@@ -21,25 +21,25 @@ type UsersStore []User
 // A fake datastore for user objects
 var users = UsersStore{
 	{
-		Username:  "jmoorhead",
+		Username:  "jeff",
 		LastLogin: time.Now(),
-		Email:     "jmoorhead@performline.com",
+		Email:     "jeff@email.com",
 		FullName:  "Jeff Moorhead",
-		Address:   "1 Locust St, Madison, NJ",
+		Address:   "135 Random Rd, Sometown, NJ",
 	},
 	{
-		Username:  "kgonzalez",
+		Username:  "karen",
 		LastLogin: time.Date(2022, time.August, 21, 20, 25, 23, 0, time.Local),
-		Email:     "kgonzalez@performline.com",
+		Email:     "karen@email.com",
 		FullName:  "Karen Gonzalez",
-		Address:   "123 Some St, Basking Ridge, NJ",
+		Address:   "123 Some St, Nowhere, NJ",
 	},
 	{
-		Username:  "jmacarthur",
+		Username:  "jeremy",
 		LastLogin: time.Date(2022, time.August, 9, 9, 14, 27, 0, time.Local),
-		Email:     "jmacarthur@performline.com",
+		Email:     "jeremy@email.com",
 		FullName:  "Jeremy MacArthur",
-		Address:   "987 Any Ave, Rockaway, NJ",
+		Address:   "987 Any Ave, Randomville, NJ",
 	},
 }
 

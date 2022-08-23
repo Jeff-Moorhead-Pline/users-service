@@ -28,7 +28,7 @@ func handleGetUserByUsername(c echo.Context) error {
 
 	u, err := data.FindUserDataLayer(c.Param("username"))
 	if err != nil {
-		return err
+		return echo.NewHTTPError(http.StatusNotFound, err)
 	}
 
 	return c.JSON(http.StatusOK, u)
@@ -42,7 +42,7 @@ func handleAddUser(c echo.Context) error {
 	}
 
 	if err := data.AddUserDataLayer(&u); err != nil {
-		return echo.NewHTTPError(http.StatusInternalServerError, err)
+		return echo.NewHTTPError(http.StatusConflict, err)
 	}
 
 	return c.JSON(http.StatusCreated, u)
