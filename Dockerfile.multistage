@@ -1,0 +1,20 @@
+# syntax=docker/dockerfile:1
+
+## Build
+FROM golang:1.18-bullseye AS build
+WORKDIR /app
+COPY go.mod ./
+COPY go.sum ./
+COPY api/ ./api/
+COPY cmd/ ./cmd/
+COPY data/ ./data/
+RUN go mod download
+RUN mkdir ./bin
+RUN go build -o ./bin/users-service ./cmd/*.go
+
+## Deploy
+FROM ubuntu:22.04
+WORKDIR /
+COPY --from=build /app/bin/users-service /users-service
+EXPOSE 8080
+ENTRYPOINT ["/users-service"]
